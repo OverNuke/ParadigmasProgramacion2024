@@ -1,13 +1,32 @@
 public class Maestro {
-    // Atributos
-    public static int id = 0;
+    // Le pertenece a la clase -> Atributo
+    public static int ID = 1;
+    // Atributos de la clase
+    private int id;
     private String nombre;
     private String especialidad;
 
     // Constructor
     public Maestro() {
         System.out.println("Hola, yo me ejecute primero");
-        id++;
+        this.id = ID;
+        ID++;
+    }
+
+    public Maestro(String nombre) {
+        System.out.println("Sobrecarga con un argumento");
+        this.nombre = nombre;
+        this.id = ID;
+        ID++;
+
+    }
+
+    public Maestro(String nombre, String especialidad) {
+        System.out.println("Sobrecarga con dos argumento");
+        this.nombre = nombre;
+        this.especialidad = especialidad;
+        this.id = ID;
+        ID++;
     }
 
     // Comportamiento / Método
