@@ -1,0 +1,5 @@
+DRY -> Don't repeat yourself
+Detectar cuando estamos repitiendo el mismo código una y otra vez para crear algún método o función que nos ayude a evitar estos repetidos. Reducir la dificultad para implementar cambios y/o mejoras en nuestra aplicación.
+
+Herencia
+Consiste en crear nuevas clases a partir de otras clases , establecer relación padre e hijo entre nuestras clases.

@@ -1,48 +1,37 @@
 import java.util.ArrayList;
 import java.util.Date;
 
-public class Maestro {
-    // Le pertenece a la clase -> Atributo
-    private static int ID = 1;
-    // Atributos de la clase
-    private int id;
-    private String nombre;
+public class Maestro extends Usuario {
+    private int numPersonal;
+
     private String especialidad;
 
+
     // Constructor
-    public Maestro() {
-        System.out.println("Hola, yo me ejecute primero");
-        this.id = ID;
-        ID++;
-    }
-
     public Maestro(String nombre) {
-        this.nombre = nombre;
-        this.id = ID;
-        ID++;
-
+        super(nombre);
     }
 
-    /* Comportamiento | Método*/
+    public Maestro() {
+        System.out.println("Default constructor");
+    }
+
+    public Maestro(String nombre, String correo, String telefono) {
+        super(nombre, correo, telefono);
+    }
+
+    /* Comportamiento | Método */
     public void mostrarNombre () {
-        System.out.println("Nombre: " + nombre);
+        System.out.println("Nombre: " + getNombre());
     }
     public void mostrarID() {
-        System.out.println("ID: " + id);
+        System.out.println("ID: " + numPersonal);
     }
 
     // Getters & Setters
-    public int getId() {
-        return id;
-    }
+    public int getNumPersonal() { return numPersonal; }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
+    public void setNumPersonal(int numPersonal) { this.numPersonal = numPersonal; }
 
     public String getEspecialidad() {
         return especialidad;
@@ -52,11 +41,20 @@ public class Maestro {
         this.especialidad = especialidad;
     }
 
+
+
     ArrayList <TutoriasDisponibles> tutoriasDisponibles = new ArrayList <> ();
+
+    public void addCursoDisponible(Date fecha, String hora) {
+        tutoriasDisponibles.add(new TutoriasDisponibles(fecha, hora));
+    }
+    public ArrayList<TutoriasDisponibles> getTutoriasDisponibles() {
+        return tutoriasDisponibles;
+    }
 
     // Clase anidada
     public static class TutoriasDisponibles {
-        private int id;
+        private int id = 0;
         private Date fecha;
         private String hora;
 
@@ -66,6 +64,12 @@ public class Maestro {
             this.hora = hora;
         }
 
+        public Date getFecha() {
+            return fecha;
+        }
 
+        public String getHora() {
+            return hora;
+        }
     }
 }

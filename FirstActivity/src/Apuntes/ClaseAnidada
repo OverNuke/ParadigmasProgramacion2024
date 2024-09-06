@@ -1,0 +1,34 @@
+Clases anidadas
+2 Tipos
+1. Internas = Método local - Clases locales, Internas anónimas
+2. Estática = anidadas
+
+
+Interna -> Son distintos a la clase anidadas "No soy estáticas"
+Ejemplo:
+ClaseExterna ins = new ClaseExterna();
+ClaseExterna.ClaseInterna insInterna = ins.new ClaseInterna();
+De ese modo llegamos al método de la clase interna
+insInterna.saludar();
+
+- Pueden acceder a miembros tanto estáticos como no estáticos
+- Necesitan ser instanciados a través de la instancia de su clase externa
+
+Clases Locales -> Dentro de un método y solo son accesibles dentro de ese método
+Acceder a los miembros de la clase externa y a las variables locales del método en el que se definen.
+
+Ejemplo:
+  public void metodoExterno () {
+        class ClaseLocal {
+            public void saludar () {
+                System.out.println("Hola " + nombre + ", soy una clase local.");
+            }
+        }
+        ClaseLocal claseLocal = new ClaseLocal();
+        claseLocal.saludar();
+  }
+
+
+Internas anónimas
+* NO pueden tener variables estáticas, a menos que sean constantes
+* Expresiones Lambda
