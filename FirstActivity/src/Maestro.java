@@ -1,6 +1,9 @@
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Maestro {
     // Le pertenece a la clase -> Atributo
-    public static int ID = 1;
+    private static int ID = 1;
     // Atributos de la clase
     private int id;
     private String nombre;
@@ -14,22 +17,13 @@ public class Maestro {
     }
 
     public Maestro(String nombre) {
-        System.out.println("Sobrecarga con un argumento");
         this.nombre = nombre;
         this.id = ID;
         ID++;
 
     }
 
-    public Maestro(String nombre, String especialidad) {
-        System.out.println("Sobrecarga con dos argumento");
-        this.nombre = nombre;
-        this.especialidad = especialidad;
-        this.id = ID;
-        ID++;
-    }
-
-    // Comportamiento / Método
+    /* Comportamiento | Método*/
     public void mostrarNombre () {
         System.out.println("Nombre: " + nombre);
     }
@@ -37,6 +31,7 @@ public class Maestro {
         System.out.println("ID: " + id);
     }
 
+    // Getters & Setters
     public int getId() {
         return id;
     }
@@ -49,15 +44,28 @@ public class Maestro {
         return nombre;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public String getEspecialidad() {
         return especialidad;
     }
 
     public void setEspecialidad(String especialidad) {
         this.especialidad = especialidad;
+    }
+
+    ArrayList <TutoriasDisponibles> tutoriasDisponibles = new ArrayList <> ();
+
+    // Clase anidada
+    public static class TutoriasDisponibles {
+        private int id;
+        private Date fecha;
+        private String hora;
+
+
+        public TutoriasDisponibles(Date fecha, String hora) {
+            this.fecha = fecha;
+            this.hora = hora;
+        }
+
+
     }
 }
