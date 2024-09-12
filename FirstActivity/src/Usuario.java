@@ -5,6 +5,11 @@ public class Usuario {
 
     public Usuario() { }
 
+    public Usuario(String nombre, String telefono) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+    }
+
     public Usuario(String nombre, String correo, String telefono) {
         this.nombre = nombre;
         this.correo = correo;
@@ -37,5 +42,10 @@ public class Usuario {
 
     public void setTelefono(String telefono) {
         this.telefono = telefono;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario " + nombre + " Correo: " + correo + " Telefono: " + telefono + "\n";
     }
 }

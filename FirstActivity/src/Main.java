@@ -36,6 +36,15 @@ public class Main {
         ClaseExterna.ClaseInterna insInterna = ins.new ClaseInterna();
         insInterna.saludar();
         ins.metodoExterno();
+
+
+        IBoton boton = new IBoton() {
+            @Override
+            public void pulsar() {
+                System.out.println("Boton pulsado");
+            }
+        };
+
     }
 }
 

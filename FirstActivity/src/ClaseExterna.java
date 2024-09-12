@@ -1,5 +1,6 @@
 public class ClaseExterna {
     private String nombre = "kevin";
+
     public class ClaseInterna {
         public void saludar () {
             System.out.println("hola " + nombre +", soy una clase interna.");

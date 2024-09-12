@@ -16,6 +16,15 @@ public class Maestro extends Usuario {
         System.out.println("Default constructor");
     }
 
+    public Maestro(String nombre, String telefono) {
+        super(nombre, telefono);
+    }
+
+    public Maestro (String nombre, int numPersonal, String especialidad) {
+        super(nombre);
+        this.numPersonal = numPersonal;
+        this.especialidad = especialidad;
+    }
     public Maestro(String nombre, String correo, String telefono) {
         super(nombre, correo, telefono);
     }
@@ -71,5 +80,16 @@ public class Maestro extends Usuario {
         public String getHora() {
             return hora;
         }
+
+        @Override
+        public String toString() {
+            return "Fecha: "+fecha+" Hora: "+hora;
+        }
+    }
+
+    @Override
+    public String toString() {
+      return super.toString()+"Numero Personal: "+numPersonal+" Especialidad: "+especialidad+'\n'+
+              "Tutorias Disponibles: \n"+tutoriasDisponibles.toString();
     }
 }
