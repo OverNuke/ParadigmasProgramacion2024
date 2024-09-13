@@ -9,5 +9,9 @@ public class main2 {
         maestro.addCursoDisponible(new Date() , "16:00");
         maestro.addCursoDisponible(new Date() , "18:00");
         System.out.println(maestro);
+        maestro.saludar();
+
+        Usuario usuario = new Maestro("Juan", 456, "Matemáticas");
+        usuario.setCorreo("Juanito@ejemplo.com");
     }
 }

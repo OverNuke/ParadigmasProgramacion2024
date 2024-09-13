@@ -1,4 +1,4 @@
-public class Usuario {
+public abstract class Usuario {
     private String nombre;
     private String correo;
     private String telefono;
@@ -48,4 +48,6 @@ public class Usuario {
     public String toString() {
         return "Usuario " + nombre + " Correo: " + correo + " Telefono: " + telefono + "\n";
     }
+
+    public abstract void saludar();
 }
