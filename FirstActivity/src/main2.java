@@ -1,3 +1,6 @@
+import Model.Maestro;
+import Model.Usuario;
+
 import java.util.Date;
 
 public class main2 {
@@ -13,5 +16,6 @@ public class main2 {
 
         Usuario usuario = new Maestro("Juan", 456, "Matemáticas");
         usuario.setCorreo("Juanito@ejemplo.com");
+//        usuario.addCursoDisponible(new Date() , "12:00");
     }
 }

@@ -1,3 +1,5 @@
+package Model;
+
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -28,6 +30,12 @@ public class Maestro extends Usuario {
     public Maestro(String nombre, String correo, String telefono) {
         super(nombre, correo, telefono);
     }
+
+    public Maestro(String nombre, String correo, int numPersonal) {
+        super(nombre, correo);
+        this.numPersonal = numPersonal;
+    }
+
 
     /* Comportamiento | Método */
     public void mostrarNombre () {
@@ -62,28 +70,9 @@ public class Maestro extends Usuario {
     }
 
     // Clase anidada
-    public static class TutoriasDisponibles {
-        private int id = 0;
-        private Date fecha;
-        private String hora;
-
-
+    public static class TutoriasDisponibles extends CitaTutoria {
         public TutoriasDisponibles(Date fecha, String hora) {
-            this.fecha = fecha;
-            this.hora = hora;
-        }
-
-        public Date getFecha() {
-            return fecha;
-        }
-
-        public String getHora() {
-            return hora;
-        }
-
-        @Override
-        public String toString() {
-            return "Fecha: "+fecha+" Hora: "+hora;
+            super(fecha, hora);
         }
     }
 

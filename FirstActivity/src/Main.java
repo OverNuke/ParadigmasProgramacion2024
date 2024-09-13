@@ -1,8 +1,6 @@
-import UI.UIMenu;
+import Model.Maestro;
 
 import java.util.Date;
-
-import static UI.UIMenu.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -30,20 +28,6 @@ public class Main {
         for (Maestro.TutoriasDisponibles tuto : maestro2.getTutoriasDisponibles()) {
             System.out.println(tuto.getFecha()+ " " +tuto.getHora());
         }
-
-
-        ClaseExterna ins = new ClaseExterna();
-        ClaseExterna.ClaseInterna insInterna = ins.new ClaseInterna();
-        insInterna.saludar();
-        ins.metodoExterno();
-
-
-        IBoton boton = new IBoton() {
-            @Override
-            public void pulsar() {
-                System.out.println("Boton pulsado");
-            }
-        };
 
     }
 }

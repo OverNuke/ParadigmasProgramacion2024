@@ -1,3 +1,5 @@
+package Model;
+
 public abstract class Usuario {
     private String nombre;
     private String correo;
@@ -5,9 +7,9 @@ public abstract class Usuario {
 
     public Usuario() { }
 
-    public Usuario(String nombre, String telefono) {
+    public Usuario(String nombre, String correo) {
         this.nombre = nombre;
-        this.telefono = telefono;
+        this.correo = correo;
     }
 
     public Usuario(String nombre, String correo, String telefono) {
@@ -46,7 +48,7 @@ public abstract class Usuario {
 
     @Override
     public String toString() {
-        return "Usuario " + nombre + " Correo: " + correo + " Telefono: " + telefono + "\n";
+        return "Model.Usuario " + nombre + " Correo: " + correo + " Telefono: " + telefono + "\n";
     }
 
     public abstract void saludar();

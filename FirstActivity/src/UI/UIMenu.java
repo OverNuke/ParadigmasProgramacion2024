@@ -1,10 +1,23 @@
 package UI;
 
+import Model.Estudiante;
+import Model.Maestro;
+import Model.Secretaria;
+
+import java.util.ArrayList;
 import java.util.Scanner;
+import static UI.UIEstudiante.*;
+import static UI.UIMaestro.*;
+import static UI.UISecretaria.*;
 
 public class UIMenu {
-    public static final String [] MESES = {"Enero","Febrero","Marzo","Abril","Mayo","Junio",
-            "Julio","Agostro","Septiembre","Octubre","Noviembre","Diciembre"};
+
+    public static ArrayList <Maestro> maestros = new ArrayList<>();
+    public static ArrayList <Estudiante> estudiantes = new ArrayList<>();
+    public static ArrayList <Secretaria> secretarias = new ArrayList<>();
+    public static Maestro maestrologeado = new Maestro();
+    public static Estudiante estudiantelogeado = new Estudiante();
+    public static Secretaria secretarialogeado = new Secretaria();
 
     public static void mostrarMenu () {
         Scanner sc = new Scanner(System.in);
@@ -12,19 +25,21 @@ public class UIMenu {
         do {
             System.out.println("..::Bienvenidos::..");
             System.out.println("Seleccione una opción:");
-            System.out.print("1. Maestro\n2. Estudiante\n0. Salir\n");
+            System.out.print("1. Maestro\n2. Estudiante\n3. Secretaria\n0. Salir\n");
             // int opcion = sc.nextInt();
             opcion = Integer.valueOf(sc.nextLine());
             switch (opcion) {
                 case 1:
-                    System.out.println("..::Maestros::..");
+                    loginUsuario(1);
                     break;
                 case 2:
-                    estudianteMenu();
+                    loginUsuario(2);
+                    break;
+                case 3:
+                    loginUsuario(3);
                     break;
                 case 0:
                     System.out.println("Bye...");
-                    System.exit(0);
                     return;
                 default:
                     System.out.println("Opción no valida");
@@ -33,30 +48,51 @@ public class UIMenu {
         } while (opcion != 0);
     }
 
-    public static void estudianteMenu () {
+    public static void loginUsuario (int tipoUsuario) {
+        /*
+        * 1. Maestro
+        * 2. Estudiante
+        * 3. Secretaria
+         */
         Scanner sc = new Scanner(System.in);
-        int respuesta;
+        boolean usuarioEncontrado = false;
+        String correo;
+
         do {
-            System.out.println("..::Estudiantes::..");
-            System.out.print("1. Agendar tutoria\n2. Consultar mis tutoria\n0. cancelar\n");
-            respuesta = Integer.valueOf(sc.nextLine());
-            switch (respuesta) {
-                case 1:
-                    System.out.println("..::Agendar tutoria::..");
-                    for (int i = 0; i < MESES.length - 1; i++) {
-                        System.out.println((i + 1) +". "+ MESES[i]);
+
+            System.out.println("Ingrese su correo");
+            correo = sc.nextLine();
+
+            if (tipoUsuario == 1) {
+                for (Maestro maestro : maestros) {
+                    if (maestro.getCorreo().equals(correo)) {
+                        maestrologeado = maestro;
+                        usuarioEncontrado = true;
+                        System.out.println("Bienvenido " + maestro.getNombre());
+                        maestrosMenu();
                     }
-                    break;
-                case 2:
-                    System.out.println("..::Consultar mis tutoria::..");
-                    break;
-                case 0:
-                    System.out.println("Bye...");
-                    break;
-                default:
-                    System.out.println("Opcion no valida");
-                    break;
+                }
+            } else if (tipoUsuario == 2) {
+                for (Estudiante estudiante : estudiantes) {
+                    if (estudiante.getCorreo().equals(correo)) {
+                        usuarioEncontrado = true;
+                        estudiantelogeado = estudiante;
+                        System.out.println("Bienvenido " + estudiante.getNombre());
+                        estudianteMenu();
+                    }
+                }
+            } else if (tipoUsuario == 3) {
+                for (Secretaria secretaria : secretarias) {
+                    if (secretaria.getCorreo().equals(correo)) {
+                        usuarioEncontrado = true;
+                        secretarialogeado = secretaria;
+                        System.out.println("Bienvenido " + secretaria.getNombre());
+                        secretariaMenu();
+                    }
+                }
             }
-        } while (respuesta != 0);
+
+
+        } while (!usuarioEncontrado);
     }
 }
