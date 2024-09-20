@@ -38,7 +38,7 @@ public class Secretaria extends Usuario{
 
     ArrayList<Maestro.TutoriasDisponibles> tutoriasDisponibles = new ArrayList <> ();
 
-    public void addCursoDisponible(Date fecha, String hora) {
+    public void addCursoDisponible(String fecha, String hora) {
         tutoriasDisponibles.add(new Maestro.TutoriasDisponibles(fecha, hora));
     }
     public ArrayList<Maestro.TutoriasDisponibles> getTutoriasDisponibles() {
@@ -47,7 +47,7 @@ public class Secretaria extends Usuario{
 
     // Clase anidada
     public static class TutoriasDisponibles extends CitaTutoria {
-        public TutoriasDisponibles(Date fecha, String hora) {
+        public TutoriasDisponibles(String fecha, String hora) {
             super(fecha, hora);
         }
     }
