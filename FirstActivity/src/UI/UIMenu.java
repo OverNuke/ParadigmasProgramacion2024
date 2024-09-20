@@ -67,7 +67,6 @@ public class UIMenu {
                     if (maestro.getCorreo().equals(correo)) {
                         maestrologeado = maestro;
                         usuarioEncontrado = false;
-                        System.out.println("Bienvenido " + maestro.getNombre());
                         maestrosMenu();
                     }
                 }
@@ -76,7 +75,6 @@ public class UIMenu {
                     if (estudiante.getCorreo().equals(correo)) {
                         usuarioEncontrado = false;
                         estudiantelogeado = estudiante;
-                        System.out.println("Bienvenido " + estudiante.getNombre());
                         estudianteMenu();
                     }
                 }

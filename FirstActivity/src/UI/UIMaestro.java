@@ -13,6 +13,7 @@ public class UIMaestro {
         int opcion;
 
         do {
+            System.out.println("Bienvenido " + maestrologeado.getNombre());
             System.out.println("..::Maestros::..");
             System.out.printf("1. Agregar curso\n2. Listar mis cursos\n3. Salir\n");
             opcion = Integer.valueOf(sc.nextLine());

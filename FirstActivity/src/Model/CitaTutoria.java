@@ -26,6 +26,9 @@ public class CitaTutoria {
     public String getFecha() {
         return formato.format(fecha);
     }
+    public Date getFechaDate() {
+        return fecha;
+    }
 
     public String getHora() {
         return hora;
