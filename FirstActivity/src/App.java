@@ -14,10 +14,10 @@ public class App {
 
 
 
-        estudiantes.add(new Estudiante("Juan", "juanito@estudiantes.uv.mx", "3456789"));
-        estudiantes.add(new Estudiante("Pedro", "zS15464760@estudiantes.uv.mx", "648515"));
-        estudiantes.add(new Estudiante("Maria", "zS22108439@estudiantes.uv.mx","98471522"));
-        estudiantes.add(new Estudiante("kevin", "zS22107021@estudiantes.uv.mx", "934 385 4802"));
+        estudiantes.add(new Estudiante("Juan", "juanito@estu.uv.mx", "3456789"));
+        estudiantes.add(new Estudiante("Pedro", "zS15464760@estu.uv.mx", "648515"));
+        estudiantes.add(new Estudiante("Maria", "zS22108439@estu.uv.mx","98471522"));
+        estudiantes.add(new Estudiante("kevin", "zS22107021@estu.uv.mx", "934 385 4802"));
 
          mostrarMenu();
     }

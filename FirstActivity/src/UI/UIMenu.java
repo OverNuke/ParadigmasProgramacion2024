@@ -15,9 +15,9 @@ public class UIMenu {
     public static ArrayList <Maestro> maestros = new ArrayList<>();
     public static ArrayList <Estudiante> estudiantes = new ArrayList<>();
     public static ArrayList <Secretaria> secretarias = new ArrayList<>();
-    public static Maestro maestrologeado = new Maestro();
-    public static Estudiante estudiantelogeado = new Estudiante();
-    public static Secretaria secretarialogeado = new Secretaria();
+    public static Maestro maestrologeado;
+    public static Estudiante estudiantelogeado;
+    public static Secretaria secretarialogeado;
 
     public static void mostrarMenu () {
         Scanner sc = new Scanner(System.in);
@@ -55,11 +55,10 @@ public class UIMenu {
         * 3. Secretaria
          */
         Scanner sc = new Scanner(System.in);
-        boolean usuarioEncontrado = false;
+        boolean usuarioEncontrado = true;
         String correo;
 
         do {
-
             System.out.println("Ingrese su correo");
             correo = sc.nextLine();
 
@@ -67,7 +66,7 @@ public class UIMenu {
                 for (Maestro maestro : maestros) {
                     if (maestro.getCorreo().equals(correo)) {
                         maestrologeado = maestro;
-                        usuarioEncontrado = true;
+                        usuarioEncontrado = false;
                         System.out.println("Bienvenido " + maestro.getNombre());
                         maestrosMenu();
                     }
@@ -75,7 +74,7 @@ public class UIMenu {
             } else if (tipoUsuario == 2) {
                 for (Estudiante estudiante : estudiantes) {
                     if (estudiante.getCorreo().equals(correo)) {
-                        usuarioEncontrado = true;
+                        usuarioEncontrado = false;
                         estudiantelogeado = estudiante;
                         System.out.println("Bienvenido " + estudiante.getNombre());
                         estudianteMenu();
@@ -84,7 +83,7 @@ public class UIMenu {
             } else if (tipoUsuario == 3) {
                 for (Secretaria secretaria : secretarias) {
                     if (secretaria.getCorreo().equals(correo)) {
-                        usuarioEncontrado = true;
+                        usuarioEncontrado = false;
                         secretarialogeado = secretaria;
                         System.out.println("Bienvenido " + secretaria.getNombre());
                         secretariaMenu();
@@ -93,6 +92,6 @@ public class UIMenu {
             }
 
 
-        } while (!usuarioEncontrado);
+        } while (usuarioEncontrado);
     }
 }
