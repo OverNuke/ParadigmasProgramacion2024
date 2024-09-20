@@ -1,10 +1,13 @@
 package Model;
 
+import java.util.ArrayList;
+import java.util.Date;
+
 public class Estudiante extends Usuario {
 
     private String matricula;
     private String semestre;
-
+    ArrayList <CitaMaestro> tutoriasAgendades = new ArrayList<>();
     // Constructor
 
     public Estudiante() { }
@@ -36,4 +39,9 @@ public class Estudiante extends Usuario {
     public void saludar() {
         System.out.println("Hola, soy un estudiante");
     }
+
+    public void  addTutoriaMaestro (Maestro maestro, Date fecha, String hora) {
+        tutoriasAgendades.add(new CitaMaestro(maestro,this));
+    }
 }
+//  Ninht
