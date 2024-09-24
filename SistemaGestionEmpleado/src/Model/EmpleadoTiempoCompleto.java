@@ -23,7 +23,7 @@ public class EmpleadoTiempoCompleto extends Empleado implements IEmpleado {
 
     @Override
     public double calcularIncentivo() {
-        return 0.05 * Math.round(calcularSalario());
+        return  Math.round(0.05 * calcularSalario());
     }
 
     @Override
