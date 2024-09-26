@@ -1,7 +1,9 @@
 package UI;
 
+import Model.CitaMaestro;
 import Model.Maestro;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import static UI.UIMenu.*;
 
@@ -59,9 +61,6 @@ public class UIEstudiante {
 
             int tutoSelec = sc.nextInt();
             Maestro.TutoriasDisponibles tutoSeleccionada = maestroSeleccionado.getTutoriasDisponibles().get(tutoSelec - 1);
-
-
-
             do {
                 System.out.printf("""
                     El maestro seleccionado fue: %s.
@@ -72,12 +71,24 @@ public class UIEstudiante {
             } while (validacion < 1 || validacion > 2);
             if (validacion == 1) {
                 System.out.println("Tutoria agendada");
-                UIMenu.estudiantelogeado.addTutoriaEstudiante(maestroSeleccionado, tutoSeleccionada.getFechaDate(), tutoSeleccionada.getHora());
+                estudiantelogeado.addTutoriaMaestro(maestroSeleccionado, tutoSeleccionada.getFechaDate(), tutoSeleccionada.getHora());
             }
         } while (validacion != 1);
 
     }
+
     private static void consultarTutoria() {
-        System.out.println("..::Consultar mis tutoria::..");
+        System.out.println("..::Consultar mis tutoría::..");
+        ArrayList <CitaMaestro> tutoriasAgendadas = estudiantelogeado.getTutoriasAgendades();
+        if (tutoriasAgendadas.isEmpty()) {
+            System.out.println("No tienes tutorías agendadas");
+        } else {
+            int i = 0;
+            for (CitaMaestro cita : tutoriasAgendadas) {
+                System.out.printf("""
+                    (%d)° Tutoría: %s \n""", ++i, cita);
+            }
+        }
+
     }
 }

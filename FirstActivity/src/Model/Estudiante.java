@@ -10,12 +10,6 @@ public class Estudiante extends Usuario {
     ArrayList <CitaMaestro> tutoriasAgendades = new ArrayList<>();
     // Constructor
 
-    public Estudiante() { }
-
-    public Estudiante(String nombre) {
-        super(nombre);
-    }
-
     public Estudiante(String nombre, String correo, String telefono) {
         super(nombre, correo, telefono);
     }
@@ -41,7 +35,12 @@ public class Estudiante extends Usuario {
     }
 
     public void  addTutoriaMaestro (Maestro maestro, Date fecha, String hora) {
-        tutoriasAgendades.add(new CitaMaestro(maestro,this));
+        CitaMaestro citaMaestro = new CitaMaestro(maestro,this);
+        citaMaestro.agendar(fecha,hora);
+        tutoriasAgendades.add(citaMaestro);
+    }
+
+    public ArrayList<CitaMaestro> getTutoriasAgendades() {
+        return tutoriasAgendades;
     }
 }
-//  Ninht

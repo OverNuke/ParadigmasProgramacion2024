@@ -2,6 +2,7 @@ import Model.Estudiante;
 import Model.Maestro;
 import UI.UIEstudiante;
 import UI.UIMaestro;
+import UI.UIMenu;
 import UI.UIMenu.*;
 
 import static UI.UIMenu.*;
@@ -38,7 +39,6 @@ public class App {
         maestros.add(maestro3);
         UIMaestro.maestrosConTutorias.add(maestro1);
         UIMaestro.maestrosConTutorias.add(maestro2);
-
-        UIEstudiante.agendarTutoria();
+        UIMenu.mostrarMenu();
     }
 }
