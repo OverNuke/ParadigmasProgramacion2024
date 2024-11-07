@@ -211,9 +211,10 @@ es_pareja_de(X,Y) :-
 pareja(X,Y); pareja(Y,X).
 % Primo & Prima--------------------------------------------------------
 es_primx_de(X, Primo) :-
-(progenitor(Padre,X), progenitor(Tio,Primo); es_pareja_de(Primo, Pareja); es_pareja_de(X,Pareja02))
-, (es_hermano_de(Padre,Tio); es_hermana_de(Padre,Tio)
-; progenitor(Tio,Pareja); progenitor(Padre,Pareja02)).
+% Si son biologicos
+(progenitor(Padre, X),progenitor(Tio,Primo), (es_hermano_de(Padre,Tio))) ;
+% Si no son biologicos
+((es_pareja_de(X,Pareja01);es_pareja_de(Primo,Pareja02)), (progenitor(Padre02,Pareja01),progenitor(Tio02,Pareja02),es_hermano_de(Padre02,Tio02))).
 % Sobrino--------------------------------------------------------
 es_sobrino_de(Tio,Sobrino) :- 
 (es_padre_de(Padre,Tio)
